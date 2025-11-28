@@ -1,109 +1,381 @@
-# password-manager-dnie
+# 🔐 Gestor de Contraseñas DNIe - Professional Edition
 
-### Gestor de Contraseñas con DNI Electrónico (DNIe)
+<div align="center">
 
-Un gestor de contraseñas de escritorio seguro que utiliza las capacidades criptográficas del DNI electrónico español para el cifrado y acceso a los datos. La aplicación está desarrollada en Python con una interfaz gráfica creada con Pygame.
+![Version](https://img.shields.io/badge/version-2.0-blue.svg)
+![Python](https://img.shields.io/badge/python-3.8+-green.svg)
+![License](https://img.shields.io/badge/license-MIT-orange.svg)
+![Status](https://img.shields.io/badge/status-production--ready-success.svg)
 
-—----------------------------------------------------------------------------------------------------------------------
+**Un gestor de contraseñas profesional y seguro que utiliza el DNI electrónico español (DNIe) para autenticación**
 
-### Características Principales
+[🚀 Inicio Rápido](#-inicio-rápido) • [📖 Documentación](#-documentación) • [✨ Características](#-características) • [🎨 Capturas](#-capturas)
 
-Máxima Seguridad con DNIe: La clave que se utiliza para cifrar la clave de la base de datos se basa en la firma de DNI electrónico por lo que es necesario para poder acceder a la base de datos
+</div>
 
-Cifrado Fuerte: La base de datos está completamente cifrada utilizando el algoritmo AES-256 GCM.
+---
 
-Base de Datos Anónima con JSON: Los nombres de los archivos de la base de datos se generan a partir de un hash del número de serie del DNIe, evitando que se pueda identificar al usuario a partir de los archivos guardados.
+## 🌟 Novedades - Versión 2.0 Professional
 
-Interfaz Gráfica Intuitiva: Una GUI sencilla y funcional creada con Pygame que permite realizar todas las operaciones del programa de forma sencilla.
+La aplicación ha sido **completamente renovada** con un diseño profesional y características premium:
 
-Generador de Contraseñas Seguras: Incluye una herramienta para generar contraseñas aleatorias y robustas de longitud variable (15-25 caracteres).
+- 🎨 **5 Temas Profesionales** - Dark, Light, Ocean Blue, Purple Night, Forest Green
+- 🔍 **Búsqueda en Tiempo Real** - Encuentra contraseñas al instante
+- 📊 **Dashboard de Estadísticas** - Analiza la fortaleza de tus contraseñas
+- ⚙️ **Panel de Configuración** - Personaliza completamente la aplicación
+- 💫 **Animaciones Fluidas** - 60 FPS, transiciones suaves
+- 🎯 **Componentes Modernos** - Interfaz de nivel comercial
+- 📱 **Diseño Responsive** - Se adapta al tamaño de ventana
 
-Portapapeles Seguro: Al copiar una contraseña, esta se elimina automáticamente del portapapeles después de 30 segundos para mayor seguridad. Depende del sistema operativo se puede ver con el historial del portapapeles si está activo, es algo que no se puede cambiar a no ser que se cambie la configuración del propio sistema operativo.
+> 💡 **Ver todas las mejoras:** [MEJORAS_PROFESIONALES.md](MEJORAS_PROFESIONALES.md)
 
-—------------------------------------------------------------------------------------------------------------------
+---
 
-### Funcionamiento de la Seguridad 
+## 🎯 Descripción
 
-Este gestor basa su seguridad en el dni por lo que se utilizará su firma, que es accesible únicamente si se posee del dni físico y se conoce su número pin. Para ello se utiliza una clave simétrica y un desafío que deberá ser firmado por el dni para obtener esta clave simétrica.
+Un gestor de contraseñas de escritorio seguro que utiliza las capacidades criptográficas del DNI electrónico español para el cifrado y acceso a los datos. Desarrollado en Python con una interfaz gráfica profesional creada con Pygame.
 
-Número Desafío (C): La primera vez que se ejecuta, la aplicación crea un número aleatorio único de 64 bits, llamado C, que es común para la aplicación y cualquier usuario.
+---
 
-Firma Digital (S): Para acceder, cada usuario introduce el PIN del DNIe. El DNIe utiliza su clave privada para firmar el valor C, generando una firma digital única S. Esta firma es diferente para cada DNIe.
+## ✨ Características
 
-Derivación de Clave (K): La firma S se procesa con un hash SHA-256 para derivar una clave de cifrado simétrica, K, única para cada S, es decir, para cada DNIe.
+### 🔐 Seguridad de Nivel Gubernamental
 
-Descifrado de la Clave Maestra (K_db): La clave K se utiliza para descifrar la clave maestra de la base de datos (K_db), que está almacenada en un archivo de texto.
+- **Autenticación DNIe** - Utiliza el DNI electrónico español como factor de autenticación
+- **Cifrado AES-256 GCM** - Base de datos completamente cifrada con el algoritmo más seguro
+- **Firma Digital** - Cada operación firmada con la clave privada del DNIe
+- **Base de Datos Anónima** - Archivos identificados por hash, sin datos personales
+- **Sin Cloud** - Todo se almacena localmente, tú controlas tus datos
 
-Acceso a la Base de Datos: Finalmente, K_db se utiliza para descifrar la base de datos JSON principal que contiene todas las contraseñas del usuario.
+### 🎨 Interfaz Profesional
 
-Este conjunto de claves que se pueden obtener únicamente con el DNIe proporcionan seguridad, integridad y confidencialidad a la hora de gestionar las contraseñas.
+- **5 Temas Personalizables** - Desde claro minimalista hasta oscuro elegante
+- **Animaciones Fluidas** - 60 FPS constantes, transiciones suaves
+- **Diseño Moderno** - Tarjetas elegantes, botones con efectos, sombras dinámicas
+- **Responsive** - Se adapta perfectamente a cualquier tamaño de pantalla
+- **Intuitive UX** - Diseñada para ser amigable y fácil de usar
 
-—----------------------------------------------------------------------------------------------------------------------
+### 📊 Gestión Avanzada
 
-### Requisitos Previos 
+- **Búsqueda Instantánea** - Encuentra cualquier contraseña en milisegundos
+- **Indicador de Fortaleza** - Analiza la seguridad de cada contraseña en tiempo real
+- **Dashboard de Estadísticas** - Métricas sobre tus contraseñas (débiles, medias, fuertes)
+- **Generador Automático** - Crea contraseñas seguras de 15-25 caracteres
+- **Copiado Temporal** - Portapapeles seguro con auto-limpieza (configurable)
 
-Antes de ejecutar el programa, asegúrate de tener lo siguiente:
+### ⚙️ Personalización Total
 
-Python 3.9 o superior.
+- **Configuración Completa** - Ajusta cada aspecto de la aplicación
+- **Temas Dinámicos** - Cambia el aspecto sin reiniciar
+- **Tamaños de Fuente** - Pequeño, mediano o grande
+- **Control de Animaciones** - Activa/desactiva según tu preferencia
+- **Persistencia** - Todas tus preferencias se guardan automáticamente
 
-Las siguientes librerías de Python. 
-pygame
-pyscard
-pyperclip
-cryptography
-python-pkcs11
+---
 
-Puedes instalarlas con pip:
+## 🔒 Arquitectura de Seguridad
 
-pip install pygame pyscard pyperclip cryptography python-pkcs11
+### Cómo Funciona
 
-Software del DNI Electrónico: Es imprescindible tener instalados los drivers oficiales del DNIe en tu sistema. Puedes descargarlos desde la web oficial del Cuerpo Nacional de Policía en el enlace (15/10/2025):
-https://www.dnielectronico.es/portaldnie/prf1_cons02.action?pag=ref_1101
+La seguridad se basa en un sistema de múltiples capas utilizando el DNIe como factor de autenticación:
 
-El programa está configurado para usar la librería opensc-pkcs11.dll. Asegúrate de que la ruta en manejo_datos.py coincida con tu instalación, especialmente si el sistema operativo no es WINDOWS.
+```
+1. Usuario inserta DNIe → 2. Introduce PIN → 3. DNIe firma desafío (C)
+                                                          ↓
+4. Genera S (firma digital) → 5. Deriva K (SHA-256) → 6. Descifra K_db
+                                                          ↓
+7. Accede a Base de Datos cifrada (AES-256 GCM)
+```
 
-—------------------------------------------------------------------------------------------------------------------
+### Flujo Detallado
 
-### Instalación y Ejecución 
+1. **Desafío (C)** - Número aleatorio de 64 bits único por instalación
+2. **Firma Digital (S)** - DNIe firma C con su clave privada
+3. **Clave de Cifrado (K)** - SHA-256 de la firma S
+4. **Clave Maestra (K_db)** - Descifrada usando K
+5. **Base de Datos** - Cifrada con K_db usando AES-256 GCM
 
-Clona o descarga este repositorio en tu máquina.
+### Ventajas
 
-Abre una terminal en la carpeta del proyecto (o adjunta la ruta correspondiente).
+- ✅ **Doble Factor**: DNIe físico + PIN
+- ✅ **No Almacena Claves**: Se regeneran en cada sesión
+- ✅ **Único por Usuario**: Cada DNIe genera claves diferentes
+- ✅ **Imposible Replicar**: Sin el DNIe físico no hay acceso
+- ✅ **Cumple GDPR**: Datos locales, control total del usuario
 
-Instala las dependencias mencionadas en los requisitos previos.
+---
 
-Asegúrate de tener un lector de tarjetas conectado y el DNIe insertado.
+## 🚀 Inicio Rápido
 
-Ejecuta el script principal:
+### Requisitos Previos
 
+- **Python 3.8+** - [Descargar](https://www.python.org/downloads/)
+- **DNIe español** con lector o puerto USB
+- **Drivers OpenSC** - [Descargar](https://github.com/OpenSC/OpenSC/releases)
+- **Windows 10/11** (recomendado)
+
+### Instalación
+
+1. **Clona el repositorio**
+```bash
+git clone https://github.com/RubenSanzManovel/password-manager-dnie.git
+cd password-manager-dnie
+```
+
+2. **Instala las dependencias**
+```powershell
+pip install pygame pyperclip cryptography python-pkcs11
+```
+
+3. **Verifica la instalación**
+```powershell
+cd Scripts
+python test_instalacion.py
+```
+
+Deberías ver: `✅ ¡TODO LISTO PARA USAR!`
+
+4. **Ejecuta la aplicación**
+```powershell
 python Inicio_Gestor.py
+```
 
-—------------------------------------------------------------------------------------------------------------------
+### Primera Configuración
 
-### Estructura del Proyecto 
+1. La aplicación detectará tu DNIe automáticamente
+2. Introduce tu PIN (tienes 3 intentos)
+3. ¡Listo! Empieza a guardar contraseñas de forma segura
 
-Inicio_Gestor.py: Punto de entrada de la aplicación. Muestra la pantalla de bienvenida y da paso al resto del programa.
+> 📖 **Guía completa:** [GUIA_INICIO_RAPIDO.md](GUIA_INICIO_RAPIDO.md)
 
-detectar_dnie.py: Lógica de bajo nivel para detectar la presencia del lector y del DNIe verificando si hay un lector conectado y en este hay conectado un DNIe.
+---
 
-detectar_dnie_gui.py: Interfaz gráfica para el proceso de detección inicial. Aparece una pantalla de carga mientras se ejecuta la parte lógica.
+## 📖 Documentación
 
-verificar_dnie_gui.py: Interfaz gráfica que solicita el PIN del DNIe y gestiona la verificación.
+### Para Usuarios
 
-manejo_datos.py: El núcleo de la aplicación, lo más importante. Gestiona toda la lógica criptográfica, la interacción con el DNIe y el manejo de la base de datos.
+- 📘 **[Guía de Inicio Rápido](GUIA_INICIO_RAPIDO.md)** - Aprende a usar la aplicación
+- ✨ **[Mejoras Profesionales](MEJORAS_PROFESIONALES.md)** - Todas las características nuevas
+- 🔄 **[Instrucciones de Actualización](INSTRUCCIONES_ACTUALIZACION.md)** - Cómo actualizar
+- 📊 **[Resumen Ejecutivo](RESUMEN_EJECUTIVO.md)** - Visión general del proyecto
 
-Interfaz_Contraseñas.py: La ventana principal donde se listan y gestionan las contraseñas.
+### Para Desarrolladores
 
-Nombre_Contraseña.py: La ventana emergente para añadir o editar entradas.
+- 🛠️ **[Guía para Desarrolladores](GUIA_DESARROLLADORES.md)** - Arquitectura y componentes
+- 🎨 **Sistema de Temas** - Cómo crear y personalizar temas
+- 🧩 **Componentes UI** - Biblioteca de componentes reutilizables
+- 📝 **API Documentation** - Documentación técnica completa
 
-generador_contraseñas.py: Utilidad para la generación de contraseñas seguras.
+---
 
-Comprobacion_paquetes.py: Utilidad para la verificacion e instalacion de las librerias mencionadas anteriormente. Se ejecuta aparte del programa principal para poder instalar las librerias correctamente.
-—------------------------------------------------------------------------------------------------------------------
+## 🎨 Capturas de Pantalla
 
-### Autores
+### Pantalla de Inicio
+<details>
+<summary>Ver captura</summary>
 
-Enrique Landa
+- Animaciones de entrada suaves
+- Icono de candado con efecto brillante
+- Botones modernos con hover
+- Acceso al panel de configuración
 
-Ruben Sanz
+</details>
+
+### Gestor Principal
+<details>
+<summary>Ver captura</summary>
+
+- Diseño de tarjetas elegante
+- Barra de búsqueda instantánea
+- Panel de estadísticas lateral
+- Indicadores de fortaleza
+- Botones de acción rápida
+
+</details>
+
+### Panel de Configuración
+<details>
+<summary>Ver captura</summary>
+
+- 5 temas profesionales
+- Opciones de personalización
+- Cambio en tiempo real
+- Interfaz intuitiva
+
+</details>
+
+---
+
+## 🎯 Casos de Uso
+
+### 👤 Usuario Personal
+- Gestiona contraseñas de redes sociales, email, bancos
+- Genera contraseñas seguras automáticamente
+- Organiza con nombres descriptivos
+- Analiza seguridad de contraseñas existentes
+
+### 💼 Profesional
+- Múltiples cuentas corporativas
+- Contraseñas de alta seguridad
+- Auditorías periódicas
+- Cumplimiento de políticas de seguridad
+
+### 🏢 Pequeña Empresa
+- Gestión de credenciales de equipo
+- Almacenamiento local seguro
+- Sin dependencias cloud
+- Control total de datos
+
+---
+
+## 🔧 Requisitos Técnicos
+
+### Dependencias de Python
+```bash
+pygame>=2.0.0          # Interfaz gráfica
+pyperclip>=1.8.0       # Gestión del portapapeles
+cryptography>=3.4.0    # Cifrado AES-256 GCM
+python-pkcs11>=0.7.0   # Comunicación con DNIe
+```
+
+**Instalación:**
+```bash
+pip install pygame pyperclip cryptography python-pkcs11
+```
+
+### Software Adicional
+
+**Drivers DNIe** (Obligatorio)
+- Descarga: [Web oficial CNP](https://www.dnielectronico.es/portaldnie/)
+- Incluye: OpenSC PKCS#11 library
+- Ubicación Windows: `C:\Program Files\OpenSC Project\OpenSC\pkcs11\opensc-pkcs11.dll`
+
+**Lector de Tarjetas**
+- Compatible con DNIe 3.0 y 4.0
+- USB o integrado en portátil
+- Drivers instalados y funcionando
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+password-manager-dnie/
+├── Scripts/
+│   ├── config_manager.py           # Sistema de configuración y temas
+│   ├── ui_components.py            # Componentes UI reutilizables
+│   ├── Inicio_Gestor.py            # Pantalla de inicio
+│   ├── detectar_dnie_gui.py        # Detección del DNIe
+│   ├── verificar_dnie_gui.py       # Verificación de PIN
+│   ├── Interfaz_Contraseñas_Pro.py # Gestor principal (v2.0)
+│   ├── Nombre_Contraseña_Pro.py    # Diálogo de nueva contraseña (v2.0)
+│   ├── manejo_datos.py             # Lógica de cifrado y datos
+│   ├── generador_contraseñas.py    # Generador de contraseñas
+│   └── test_instalacion.py         # Script de verificación
+├── MEJORAS_PROFESIONALES.md        # Documentación completa de mejoras
+├── GUIA_INICIO_RAPIDO.md          # Guía para usuarios
+├── GUIA_DESARROLLADORES.md        # Guía técnica
+├── RESUMEN_EJECUTIVO.md           # Visión general del proyecto
+└── README.md                       # Este archivo
+```
+
+### Archivos Principales
+
+| Archivo | Descripción | Versión |
+|---------|-------------|---------|
+| `config_manager.py` | Gestión de temas y configuración | 2.0 |
+| `ui_components.py` | Componentes UI modernos | 2.0 |
+| `Interfaz_Contraseñas_Pro.py` | Gestor de contraseñas principal | 2.0 |
+| `manejo_datos.py` | Lógica de seguridad y cifrado | 1.0 |
+| `Inicio_Gestor.py` | Pantalla de inicio | 2.0 |
+
+---
+
+## 👥 Autores
+
+**Desarrollo Original:**
+- Enrique Landa
+- Rubén Sanz Manovel
+
+**Professional Edition (v2.0):**
+- Diseño UI/UX moderno
+- Sistema de temas
+- Componentes reutilizables
+- Documentación completa
+
+---
+
+## 📜 Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+
+---
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas! Si quieres mejorar este proyecto:
+
+1. Fork el repositorio
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+### Áreas de Contribución
+
+- 🎨 Nuevos temas de color
+- 🌐 Traducciones (internacionalización)
+- 📱 Versión móvil
+- ☁️ Sincronización cloud (opcional)
+- 🔌 Extensión de navegador
+- 🐛 Corrección de bugs
+- 📚 Mejoras en documentación
+
+---
+
+## 🐛 Reportar Problemas
+
+Si encuentras un bug o tienes una sugerencia:
+
+1. Verifica que no exista ya en [Issues](https://github.com/RubenSanzManovel/password-manager-dnie/issues)
+2. Crea un nuevo issue con:
+   - Descripción clara del problema
+   - Pasos para reproducirlo
+   - Comportamiento esperado vs actual
+   - Screenshots si aplica
+   - Versión de Python y OS
+
+---
+
+## ⭐ Star History
+
+Si este proyecto te ha sido útil, ¡considera darle una estrella! ⭐
+
+---
+
+## 📞 Contacto y Soporte
+
+- 📧 Email: [rubensanzmanovel@gmail.com]
+- 💬 GitHub Issues: [Reportar problema](https://github.com/RubenSanzManovel/password-manager-dnie/issues)
+- 📖 Documentación: Ver archivos .md en el repositorio
+
+---
+
+## 🎉 Agradecimientos
+
+- Al equipo de OpenSC por la librería PKCS#11
+- A la comunidad de Python y Pygame
+- A todos los contribuidores y usuarios
+
+---
+
+<div align="center">
+
+**Desarrollado con ❤️ en España** 🇪🇸
+
+**Seguridad • Privacidad • Control**
+
+[⬆ Volver arriba](#-gestor-de-contraseñas-dnie---professional-edition)
+
+</div>
 

@@ -1,0 +1,17 @@
+{
+    "theme": "Dark",
+    "font_size": "medium",
+    "animations_enabled": true,
+    "auto_copy_timeout": 20,
+    "password_auto_hide_seconds": 10,
+    "password_min_length": 20,
+    "password_max_length": 64,
+    "show_password_strength": true,
+    "compact_view": false,
+    "auto_lock_timeout": 300,
+    "show_notifications": true,
+    "language": "es",
+    "items_per_page": 20,
+    "sort_by": "nombre",
+    "sort_order": "asc"
+}
